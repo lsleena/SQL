@@ -27,3 +27,14 @@ Concatenating Column Values :
  from emp ;
  
  The CASE expression allows you to perform condition logic on values returned by a query. You can provide an alias for a CASE expression to return a more readable result set. In the solution, you’ll see the alias STATUS given to the result of the CASE expression. The ELSE clause is optional. Omit the ELSE, and the CASE expression will return NULL for any row that does not satisfy the test condition.
+
+Limiting the Number of Rows Returned :
+
+select * from emp limit 5;
+
+Returning n Random Records from a Table :
+
+select * from (
+ select ename, job from emp  order by dbms_random.value() 
+ )
+ where rownum <= 5
