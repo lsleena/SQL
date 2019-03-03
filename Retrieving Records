@@ -37,4 +37,15 @@ Returning n Random Records from a Table :
 select * from (
  select ename, job from emp  order by dbms_random.value() 
  )
- where rownum <= 5
+ where rownum <= 5;
+ 
+ Finding Null Values :
+ Transforming Nulls into Real Values:
+ 
+ select coalesce(comm,0) from emp;
+ 
+ Searching for Patterns :
+ 
+ select ename, job from emp
+ where deptno in (10,20)and (ename like '%I%' or job like '%ER');
+ 
